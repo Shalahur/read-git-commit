@@ -21,9 +21,9 @@ jobs:
     # Build the Docker image
     - name: Build Docker image
       run: |
-        docker build -t shalahur/read-commit:${{ github.sha }} .
+        docker build -t shalahur/read-commit:${GITHUB_SHA:0:7} .
 
     # Push the Docker image to Docker Hub
     - name: Push Docker image to Docker Hub
       run: |
-        docker push shalahur/read-commit:${{ github.sha }}
+        docker push shalahur/read-commit:${GITHUB_SHA:0:7}
